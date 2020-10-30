@@ -1,4 +1,4 @@
-function generatePassword();
+function generatePassword() {
 
 var input = {
     length: prompt("Password length: "),
@@ -12,64 +12,62 @@ var input = {
             alert("Password must be 8 characters in length, and no more than 128 characters in length.");
             this.length = prompt("Password length: ");
             this.checkLength();
-        };
-    },
+         };
+       },
 
     checkForInput: function () {
         if (this.lowercase === false && this.uppercase === false && this.numbers === false && this.special === false) {
-            alert("You must select at least 1 criteria");
+             alert("You must select at least 1 criteria");
              this.lowercase = confirm("Do you want to include lowercase letters?");
              this.uppercase = confirm("Do you want to include uppercase letters?");
              this.numbers = confirm("Do you want to include numbers?");
              this.special = confirm("Do you want to include special characters?");
              this.checkForInput();
+        }
       }
-    }
-};
+    };
   
-input.checkLength(); // calls method to check if password length is valid
+    input.checkLength(); // calls method to check if password length is valid
 
-input.checkForInput(); // calls method to check if criteria is chosen by user
+    input.checkForInput(); // calls method to check if criteria is chosen by user
 
-var characterSet = {
-    lowercase: ["abcdefghijklmnopqrstuvwxyz", null],
-    uppercase: ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", null],
-    numbers: ["0123456789", null],
-    special: ["!'#$%&()*+-_/@?/[]{}^.,|:;", null]
-};
+    var characterSet = {
+      lowercase: ["abcdefghijklmnopqrstuvwxyz", null],
+      uppercase: ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", null],
+      numbers: ["0123456789", null],
+      special: ["!'#$%&()*+-_/@?/[]{}^.,|:;", null]
+    };
 
-function inputChecker(input, characterSet) {
+    function inputChecker(input, characterSet) {
     if (input === true) {
         include = characterSet[0]
     } else {
         include = characterSet[1];
     };
     return include;
-};
+  };
 
-var lowercaseSet = inputChecker(input.lowercase, characterSet.lowercase);
-var uppercaseSet = inputChecker(input.uppercase, characterSet.uppercase);
-var numberSet = inputChecker(input.numbers, characterSet.numbers);
-var specialSet = inputChecker(input.special, characterSet.special);
+  var lowercaseSet = inputChecker(input.lowercase, characterSet.lowercase);
+  var uppercaseSet = inputChecker(input.uppercase, characterSet.uppercase);
+  var numberSet = inputChecker(input.numbers, characterSet.numbers);
+  var specialSet = inputChecker(input.special, characterSet.special);
 
-function generatePassword(length) {
+  function generatePassword(length) {
     var password = "";
 
     var fullSet = lowercaseSet + uppercaseSet + numberSet + specialSet;
-    for (var i = 0; i < length; i++)    {
+    for (var i = 0; i < length; i++)  {
         password += fullSet[Math.floor(Math.random() * fullSet.length)];
     }
-   return password;
+    return password;
  
-};
+  };
 
   return genPassword(input.length);
-
 };
 
-//////////////////////////////////////////////////////////////
+
 // DO NOT TOUCH THE CODE BELOW
-//////////////////////////////////////////////////////////////
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
