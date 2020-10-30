@@ -19,6 +19,18 @@ THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 
+# Sneak-Peak
+![pwGenerator](https://user-images.githubusercontent.com/70370805/97674328-7266ee00-1a31-11eb-8ab5-2139b946010b.gif)
+
+
+
+
+
+
+
+
+
+
 
 https://fbabauta.github.io/Password-Generator/
 
